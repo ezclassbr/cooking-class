@@ -116,8 +116,8 @@ const CRINKLE = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
   const ING = [['dough', 'Thin pastel dough', 'Massa de pastel fina'], ['apple', '1 apple', '1 maçã'], ['sugar', '½ cup sugar', 'meia xícara de açúcar'], ['cornstarch', '½ cup cornstarch', 'meia xícara de amido de milho'], ['lime', '1 lime', '1 limão taiti'], ['egg', '1 egg', '1 ovo'], ['cinnamon', '½ cup cinnamon powder', 'meia xícara de canela em pó'], ['water', '½ cup water', 'meia xícara de água']];
   s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Ingredients' });
   for (let i = 0; i < 8; i++) await tile(s, 90 + (i % 4) * 278, 250 + Math.floor(i / 4) * 278, 250, i + 1, ING[i][0]);
-  await polaroid(s, 'po2', 'pie-open.webp', 330, 880, 380, 232, -3, '40% 62%', 1, 18, 50);
-  tape(s, 330, 770, 6, YEL, 120);
+  await polaroid(s, 'po2', 'pie-open.webp', 760, 905, 340, 200, -3, '40% 62%', 1, 16, 46);
+  tape(s, 760, 800, 6, YEL, 110);
   ING.forEach((r, i) => chip(s, 1230, 232 + i * 92, 590, 80, i + 1, r[1], r[2], { enPx: 29, ptPx: 19 }));
   s.addNotes('Antes de iniciar a cooking class, confira os ingredientes com seus alunos. Peça que repitam os nomes em voz alta, praticando a pronúncia. Relacione cada número da imagem com o nome na lista à direita.');
 
@@ -144,8 +144,7 @@ const CRINKLE = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
   s.addNotes('Apresente os principais vocabulários que serão utilizados ao longo da receita: ações (actions), substantivos (nouns) e adjetivos (adjectives). Peça que os alunos repitam os termos em voz alta, praticando a pronúncia, e incentive-os a dar exemplos usando as palavras.');
 
   // ====================== 5. LET'S START ======================
-  s = pptx.addSlide(); await chrome(s, { white: true, gh: null });
-  pic(s, ghBlue, 220, 1080 - 132, 440, 264, 0, {});
+  s = pptx.addSlide(); await chrome(s, { white: true, gh: 'br' });
   await polaroid(s, 'pw5', 'pie-whole.jpg', 400, 520, 560, 380, -4, '45% 55%', 1, 18, 56);
   tape(s, 210, 300, -35);
   await polaroid(s, 'po5', 'pie-open.webp', 1530, 560, 520, 330, 4, '40% 62%', 1, 18, 56);
@@ -183,7 +182,7 @@ const CRINKLE = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
     ['Cut the pastry into rectangles.', 1], ['Put some cold filling on one half of each rectangle.', 1], ['Fold the pastry and press the edges with a fork.', 1],
     ['Make small cuts on top.', 1], ['Brush with the beaten egg.', 1], ['Sprinkle sugar and cinnamon on top.', 1],
     ['Put the pies in the air fryer basket. Leave some space between them.', 1],
-    ['Bake at 180°C for 8 to 10 minutes (or at 160°C for 10 minutes on each side) until golden and crispy.', 2],
+    ['Bake at 180°C for 8 to 10 minutes (or at 160°C for 10 minutes on each side) until golden and crispy.', 1.6],
     ['Enjoy your apple pie!', 1]], 8, 66, 28);
   pic(s, await getPhoto('pc7', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 400, 440, 440);
   await polaroid(s, 'po7', 'pie-open.webp', 1550, 830, 500, 300, 4, '40% 62%', 1, 18, 52);
