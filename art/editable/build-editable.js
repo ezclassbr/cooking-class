@@ -75,7 +75,7 @@ const S = 3;       // escala dos PNGs
   await shot('gingham-blue', `<div style="${g(geo.gh, 84)}"></div>`, geo.gh.w, geo.gh.h);
   await shot('gingham-orange', `<div style="${g(geo.gh2, 56).replace('#77ABD9', '#F27D16').replace('#77ABD9', '#F27D16')};opacity:.9"></div>`, geo.gh2.w, geo.gh2.h);
   await shot('logo', `<div style="width:118px;height:134px;position:relative;overflow:hidden"><img src="file://${ART}/logo-ezclass-full.png" style="position:absolute;width:150px;left:-17px;top:-14px"></div>`, 118, 134);
-  await shot('photo-circle', `<div style="width:300px;height:300px;overflow:hidden"><img src="file://${ART}/pie-whole.jpg" style="width:100%;height:100%;object-fit:cover;object-position:36% 60%;transform:scale(1.15)"></div>`, 300, 300);
+  await shot('photo-circle', `<div style="width:300px;height:300px;border-radius:50%;overflow:hidden;border:10px solid #fff;position:relative"><img src="file://${ART}/pie-whole.jpg" style="width:100%;height:100%;object-fit:cover;object-position:36% 60%;transform:scale(1.15)"></div>`, 300, 300);
   const pw = geo.pola.w - 24;
   await shot('photo-pola', `<div style="width:${pw}px;height:196px;overflow:hidden"><img src="file://${ART}/pie-open.webp" style="width:100%;height:196px;object-fit:cover;object-position:40% 62%"></div>`, pw, 196);
   for (const [i, r] of geo.rows.entries()) for (const [j, p] of r.parts.entries()) if (p.t === 'svg') {
@@ -125,7 +125,7 @@ const S = 3;       // escala dos PNGs
 
   // fotos
   s.addShape(pptx.ShapeType.ellipse, { ...box({ ...geo.circle, w: geo.circle.w, h: geo.circle.h }), fill: { color: 'FFFFFF' }, line: { color: 'FFFFFF', width: 0 }, shadow });
-  s.addImage({ path: `${OUT}/assets/photo-circle.png`, x: (geo.circle.cx - 140) * PX, y: (geo.circle.cy - 140) * PX, w: 280 * PX, h: 280 * PX, rounding: true });
+  s.addImage({ path: `${OUT}/assets/photo-circle.png`, x: (geo.circle.cx - 150) * PX, y: (geo.circle.cy - 150) * PX, w: 300 * PX, h: 300 * PX });
   s.addShape(pptx.ShapeType.rect, { ...box(geo.pola), rotate: 4, fill: { color: 'FFFFFF' }, line: { color: 'FFFFFF', width: 0 }, shadow });
   // foto da polaroid: topo 12px, centro deslocado ao ângulo
   const a = 4 * Math.PI / 180, dy = (12 + 98) - geo.pola.h / 2;
