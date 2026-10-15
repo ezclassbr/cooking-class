@@ -122,72 +122,93 @@ const CRINKLE = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
   s.addNotes('Antes de iniciar a cooking class, confira os ingredientes com seus alunos. Peça que repitam os nomes em voz alta, praticando a pronúncia. Relacione cada número da imagem com o nome na lista à direita.');
 
   // ====================== 3. KITCHEN UTENSILS ======================
-  const UT = [['board', 'Cutting board', 'Tábua de cortar'], ['spoon', 'Spoon', 'Colher'], ['knife', 'Knife', 'Faca'], ['plate', 'Plate', 'Prato'], ['bowls', '2 small bowls', '2 tigelas pequenas (que possam ir ao micro-ondas)'], ['fork', 'Fork', 'Garfo'], ['brush', 'Pastry brush', 'Pincel de cozinha'], ['airfryer', 'Air fryer', 'Air fryer'], ['squeezer', 'Lemon squeezer', 'Espremedor de limão'], ['microwave', 'Microwave', 'Micro-ondas'], ['mitt', 'Oven mitt', 'Luva térmica de cozinha']];
+  const UT = [['board', 'Cutting board', 'Tábua de cortar'], ['spoon', 'Tablespoon', 'Colher de sopa'], ['knife', 'Knife', 'Faca'], ['plate', 'Plate', 'Prato'], ['bowls', '2 small bowls', '2 tigelas pequenas (que possam ir ao micro-ondas)'], ['cup', 'Cup', 'Copo'], ['fork', 'Fork', 'Garfo'], ['brush', 'Pastry brush', 'Pincel de cozinha'], ['airfryer', 'Air fryer', 'Air fryer'], ['squeezer', 'Lemon squeezer', 'Espremedor de limão'], ['microwave', 'Microwave', 'Micro-ondas'], ['mitt', 'Oven mitt', 'Luva térmica de cozinha']];
   s = pptx.addSlide(); await chrome(s, { gh: 'l', title: 'Kitchen utensils' });
-  UT.forEach((r, i) => chip(s, 90, 224 + i * 70, 640, 62, i + 1, r[1], null, { enPx: 28 }));
-  for (let i = 0; i < 11; i++) await tile(s, 800 + (i % 4) * 258, 232 + Math.floor(i / 4) * 258, 232, i + 1, UT[i][0]);
-  pic(s, await getPhoto('pc3', 'pie-whole.jpg', 232, 232, '40% 55%', 1.1, true, 8), 800 + 3 * 258 + 116, 232 + 2 * 258 + 116, 232, 232);
-  s.addNotes('Agora é hora de apresentar os utensílios de cozinha que serão utilizados. Siga o mesmo procedimento dos ingredientes: peça que os alunos repitam os nomes em voz alta, praticando a pronúncia, e relacione cada número da imagem com o nome na lista à esquerda.');
+  UT.forEach((r, i) => chip(s, 90, 224 + i * 66, 640, 58, i + 1, r[1], null, { enPx: 28 }));
+  for (let i = 0; i < 12; i++) await tile(s, 800 + (i % 4) * 258, 232 + Math.floor(i / 4) * 258, 232, i + 1, UT[i][0]);
+  s.addNotes('Agora é hora de apresentar os utensílios de cozinha que serão utilizados. Peça que os alunos repitam os nomes em voz alta, praticando a pronúncia, e relacione cada número da imagem com o nome na lista à esquerda. Atenção: a "tablespoon" é a colher de sopa, usada para medir os ingredientes.');
 
-  // ====================== 4. RECIPE VOCAB ======================
+  // ====================== 4. RECIPE VOCAB: ACTIONS ======================
   s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Recipe vocab' });
-  const ACT = [['Cook', 'Cozinhar'], ['Let cool', 'Esfriar'], ['Cut', 'Cortar'], ['Fill', 'Rechear'], ['Fold', 'Dobrar'], ['Seal', 'Fechar'], ['Brush', 'Pincelar'], ['Sprinkle', 'Polvilhar'], ['Bake', 'Assar']];
-  card(s, 90, 232, 1090, 410); await label(s, 'ACTIONS', 124, 202, 38, ORG, -2, { padX: 44 });
-  ACT.forEach((r, i) => chip(s, 124 + (i % 3) * 342, 292 + Math.floor(i / 3) * 112, 322, 98, null, r[0], r[1], { enPx: 32, ptPx: 21 }));
-  card(s, 90, 700, 520, 320); await label(s, 'NOUNS', 124, 670, 38, NAVY, -2, { padX: 44 });
-  [['Filling', 'Recheio'], ['Edges', 'Bordas'], ['Cuts', 'Cortes']].forEach((r, i) => chip(s, 124, 736 + i * 88, 452, 78, null, r[0], r[1], { enPx: 30, ptPx: 20 }));
-  card(s, 660, 700, 520, 320); await label(s, 'ADJECTIVES', 694, 670, 38, SKY, -2, { padX: 44, color: NAVY });
-  [['Thick', 'Denso'], ['Cold', 'Frio'], ['Golden', 'Dourado'], ['Crispy', 'Crocante']].forEach((r, i) => chip(s, 694 + (i % 2) * 226, 736 + Math.floor(i / 2) * 120, 214, 106, null, r[0], r[1], { enPx: 27, ptPx: 19 }));
-  pic(s, await getPhoto('pc4', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 420, 440, 440);
-  await polaroid(s, 'po4', 'pie-open.webp', 1530, 830, 460, 280, 4, '40% 62%', 1, 18, 52);
-  tape(s, 1500, 700, -8, YEL, 110);
-  s.addNotes('Apresente os principais vocabulários que serão utilizados ao longo da receita: ações (actions), substantivos (nouns) e adjetivos (adjectives). Peça que os alunos repitam os termos em voz alta, praticando a pronúncia, e incentive-os a dar exemplos usando as palavras.');
+  const ACT = [['Cut', 'Cortar'], ['Put', 'Colocar'], ['Add', 'Adicionar'], ['Mix', 'Misturar'], ['Heat', 'Aquecer'], ['Squeeze', 'Espremer'], ['Pour', 'Despejar'], ['Unroll', 'Desenrolar'], ['Fold', 'Dobrar'], ['Press', 'Pressionar'], ['Crack', 'Quebrar'], ['Beat', 'Bater'], ['Brush', 'Pincelar'], ['Pre-heat', 'Pré-aquecer'], ['Flip', 'Virar'], ['Bake', 'Assar']];
+  card(s, 90, 232, 1170, 540); await label(s, 'ACTIONS', 124, 202, 38, ORG, -2, { padX: 44 });
+  ACT.forEach((r, i) => chip(s, 124 + (i % 4) * 282, 300 + Math.floor(i / 4) * 114, 264, 100, null, r[0], r[1], { enPx: 32, ptPx: 21 }));
+  pic(s, await getPhoto('pc4', 'pie-whole.jpg', 400, 400, '36% 60%', 1.15, true, 10), 1560, 420, 400, 400);
+  await polaroid(s, 'po4', 'pie-open.webp', 1550, 810, 460, 280, 4, '40% 62%', 1, 18, 52);
+  tape(s, 1520, 680, -8, YEL, 110);
+  s.addNotes('Apresente os verbos (actions) que serão usados ao longo da receita. Peça que os alunos repitam as palavras em voz alta e incentive-os a mostrar o gesto de cada ação (por exemplo, "cut", "mix", "fold").');
 
-  // ====================== 5. LET'S START ======================
+  // ====================== 5. RECIPE VOCAB: NOUNS + ADJECTIVES ======================
+  s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Recipe vocab' });
+  card(s, 90, 232, 840, 600); await label(s, 'NOUNS', 124, 202, 38, NAVY, -2, { padX: 44 });
+  [['Filling', 'Recheio'], ['Dough', 'Massa'], ['Pie', 'Tortinha'], ['Rectangle', 'Retângulo'], ['Edges', 'Bordas'], ['Cuts', 'Cortes'], ['Basket', 'Cesta'], ['Half', 'Metade']]
+    .forEach((r, i) => chip(s, 124 + (i % 2) * 388, 300 + Math.floor(i / 2) * 126, 372, 110, null, r[0], r[1], { enPx: 32, ptPx: 21 }));
+  card(s, 960, 232, 870, 600); await label(s, 'ADJECTIVES', 994, 202, 38, SKY, -2, { padX: 44, color: NAVY });
+  [['Small', 'Pequeno'], ['Thin', 'Fino'], ['Warm', 'Morno'], ['Hot', 'Quente'], ['Cold', 'Frio'], ['Golden', 'Dourado'], ['Crispy', 'Crocante'], ['Sweet', 'Doce']]
+    .forEach((r, i) => chip(s, 994 + (i % 2) * 398, 300 + Math.floor(i / 2) * 126, 382, 110, null, r[0], r[1], { enPx: 32, ptPx: 21 }));
+  s.addNotes('Continue com os substantivos (nouns) e adjetivos (adjectives) da receita. Peça que os alunos repitam em voz alta e criem frases curtas, por exemplo: "The filling is hot." "The dough is thin."');
+
+  // ====================== 6. LET'S START ======================
   s = pptx.addSlide(); await chrome(s, { white: true, gh: 'br' });
   await polaroid(s, 'pw5', 'pie-whole.jpg', 400, 520, 560, 380, -4, '45% 55%', 1, 18, 56);
   tape(s, 210, 300, -35);
   await polaroid(s, 'po5', 'pie-open.webp', 1530, 560, 520, 330, 4, '40% 62%', 1, 18, 56);
   tape(s, 1760, 380, 32, SKY, 120);
-  const l1 = await label(s, 'Let’s Start', 960 - (((await measure('Let’s Start', 118, 800, -0.03)) + 80) / 2), 330, 118, ORG, -3);
+  await label(s, 'Let’s Start', 960 - (((await measure('Let’s Start', 118, 800, -0.03)) + 80) / 2), 330, 118, ORG, -3);
   await label(s, 'Our RECIPE!', 960 - (((await measure('Our RECIPE!', 118, 800, -0.03)) + 80) / 2) + 20, 500, 118, YEL, -3, { color: NAVY });
-  s.addNotes('Vamos começar a receita! Convide os alunos a preparar os ingredientes e utensílios à mesa antes de iniciar.');
+  s.addNotes('Vamos começar a receita! Convide os alunos a deixar ingredientes e utensílios à mesa antes de iniciar. As quantidades da lista incluem uma sobra, caso algum ingrediente caia ou seja derramado.');
 
-  // ====================== 6 e 7. RECIPE STEPS ======================
-  const steps = async (s, heading, list, startNum, rowH, fontPx) => {
+  // ====================== 7-10. RECIPE STEPS ======================
+  const steps = async (s, heading, list, startNum, next) => {
     txt(s, heading, 90 + 480, 232, 960, 50, 0, { fontFace: 'Poppins', bold: true, fontSize: pt(36), color: NAVY, align: 'left', valign: 'middle', underline: { style: 'sng' } });
-    const cardH = list.reduce((a, t) => a + t[1] * rowH, 0) + 60;
-    card(s, 90, 286, 1170, cardH);
-    let y = 316;
+    const FS = 30, LH = 112, SH = 80;
+    const hs = list.map((t) => (Math.ceil((t.length * 16.5) / 990) > 1 ? LH : SH));
+    card(s, 90, 286, 1170, hs.reduce((a, b) => a + b, 0) + 50);
+    let y = 308;
     list.forEach((t, i) => {
-      const h = t[1] * rowH;
-      rectC(s, 130 + 26, y + 26 + 4, 52, 52, ORG, 0, { r: 0.12 });
-      txt(s, String(startNum + i), 130 + 26, y + 30, 52, 52, 0, { fontFace: 'Poppins', bold: true, fontSize: pt(28), color: 'FFFFFF', align: 'center', valign: 'middle' });
-      txt(s, t[0], 130 + 70 + (1070 - 80) / 2, y + 30, 1070 - 80, h - 8, 0, { fontFace: 'Montserrat', bold: false, fontSize: pt(fontPx), color: NAVY, align: 'left', valign: 'top' });
-      y += h;
+      rectC(s, 130 + 26, y + 34, 52, 52, ORG, 0, { r: 0.12 });
+      txt(s, String(startNum + i), 130 + 26, y + 34, 52, 52, 0, { fontFace: 'Poppins', bold: true, fontSize: pt(28), color: 'FFFFFF', align: 'center', valign: 'middle' });
+      txt(s, t, 130 + 70 + 495, y + 8 + (hs[i] - 16) / 2, 990, hs[i] - 16, 0, { fontFace: 'Montserrat', fontSize: pt(FS), color: NAVY, align: 'left', valign: 'top' });
+      y += hs[i];
     });
+    if (next) {
+      rectC(s, 1550, 990, 600, 76, ORG, 0, { r: 0.2, sh: true });
+      s.addText([{ text: next[0], options: { hyperlink: { slide: next[1] } } }], { ...box(1550, 990, 600, 76), margin: 0, fontFace: 'Poppins', bold: true, fontSize: pt(30), color: 'FFFFFF', align: 'center', valign: 'middle' });
+    }
   };
   s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Recipe steps' });
   await steps(s, 'How to make the filling:', [
-    ['Chop the apple into small pieces.', 1], ['Put the apple in a small bowl.', 1], ['Add the sugar, the cinnamon and the lime juice.', 1],
-    ['Mix the cornstarch with the water in another small bowl.', 1], ['Add the cornstarch mixture to the apple.', 1],
-    ['Cook in the microwave until the filling is thick and creamy.', 1], ['Let the filling cool completely.', 1]], 1, 84, 32);
-  pic(s, await getPhoto('pc6', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 560, 440, 440);
-  rectC(s, 1550, 950, 600, 76, ORG, 0, { r: 0.2, sh: true });
-  s.addText([{ text: 'How to assemble and bake  →', options: { hyperlink: { slide: 7 } } }], { ...box(1550, 950, 600, 76), margin: 0, fontFace: 'Poppins', bold: true, fontSize: pt(30), color: 'FFFFFF', align: 'center', valign: 'middle' });
-  s.addNotes('Agora temos o passo a passo da receita, começando pelo recheio. Se preferir, convide um aluno por vez para ler cada passo em voz alta. Lembre-se de que o recheio precisa esfriar completamente antes de montar as tortinhas.');
+    'Cut one apple into small cubes. Use the knife and the cutting board.', 'Put the apple in a small bowl.', 'Add 3 tablespoons of sugar to the bowl.',
+    'Add ½ tablespoon of cinnamon to the bowl.', 'Put ½ cup of water in a cup. Heat it in the microwave for 30 seconds.',
+    'Add 2 tablespoons of the warm water to the bowl.', 'Mix everything. Heat the bowl in the microwave for 3 minutes.'], 1, ['Next: thicken the filling  →', 8]);
+  pic(s, await getPhoto('pc7', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 520, 440, 440);
+  s.addNotes('Agora temos o passo a passo da receita, começando pelo recheio. Convide um aluno por vez para ler cada passo em voz alta e mostre cada ação. A água morna usada no passo 6 é só uma parte da água aquecida no passo 5: use apenas 2 tablespoons.');
 
   s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Recipe steps' });
-  await steps(s, 'How to assemble and bake:', [
-    ['Cut the pastry into rectangles.', 1], ['Put some cold filling on one half of each rectangle.', 1], ['Fold the pastry and press the edges with a fork.', 1],
-    ['Make small cuts on top.', 1], ['Brush with the beaten egg.', 1], ['Sprinkle sugar and cinnamon on top.', 1],
-    ['Put the pies in the air fryer basket. Leave some space between them.', 1],
-    ['Bake at 180°C for 8 to 10 minutes (or at 160°C for 10 minutes on each side) until golden and crispy.', 1.6],
-    ['Enjoy your apple pie!', 1]], 8, 66, 28);
-  pic(s, await getPhoto('pc7', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 400, 440, 440);
-  await polaroid(s, 'po7', 'pie-open.webp', 1550, 830, 500, 300, 4, '40% 62%', 1, 18, 52);
+  await steps(s, 'How to thicken the filling:', [
+    'Cut the lime in half. Squeeze one half into the other small bowl with the lemon squeezer.', 'Add 1 tablespoon of cornstarch to the lime juice. Mix well to make a paste.',
+    'Pour the paste into the bowl with the apple. Mix well.', 'Heat the bowl in the microwave for 1 more minute.',
+    'Take the bowl out of the microwave. Use the oven mitt, it is hot!', 'Let the filling cool.'], 8, ['Next: make the pies  →', 9]);
+  await polaroid(s, 'po8', 'pie-open.webp', 1560, 520, 520, 330, 3, '40% 62%', 1, 18, 56);
+  tape(s, 1560, 360, -4, YEL, 120);
+  s.addNotes('Continue com o passo a passo. A pasta de suco de limão e amido de milho é o que engrossa o recheio. Reforce a segurança: a tigela sai quente do micro-ondas, então use sempre a luva térmica.');
+
+  s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Recipe steps' });
+  await steps(s, 'How to make the pies:', [
+    'Unroll the thin dough.', 'Cut the dough into rectangles.', 'Put 1 tablespoon of the filling on one half of each rectangle.',
+    'Fold the dough and press the edges with the fork.', 'Crack an egg into a cup. Beat it with the fork.',
+    'Brush the top of each pie with the egg.', 'Make 3 small cuts on top of each pie.'], 14, ['Next: bake the pies  →', 10]);
+  pic(s, await getPhoto('pc9', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 520, 440, 440);
+  s.addNotes('Agora vamos montar as tortinhas. Peça que os alunos mostrem como dobram a massa e pressionam as bordas com o garfo. Lembre que o ovo batido serve para pincelar o topo das tortinhas.');
+
+  s = pptx.addSlide(); await chrome(s, { gh: 'br', title: 'Recipe steps' });
+  await steps(s, 'How to bake the pies:', [
+    'Pre-heat the air fryer at 200°C for 5 minutes.', 'Put the pies in the air fryer basket. Leave some space between them.', 'Bake for 5 minutes.',
+    'Flip the pies with the fork. Bake for 5 more minutes, until golden and crispy.', 'Take the pies out. Put them on the plate.', 'Enjoy your apple pie!'], 21, null);
+  pic(s, await getPhoto('pc10', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 400, 440, 440);
+  await polaroid(s, 'po10', 'pie-open.webp', 1550, 830, 460, 280, 4, '40% 62%', 1, 18, 52);
   tape(s, 1520, 700, -8, YEL, 110);
-  s.addNotes('Esta parte é a continuação da receita. Siga o mesmo procedimento do slide anterior e, se quiser, peça para que os alunos leiam um passo por vez. Ao final, aproveitem a apple pie!');
+  s.addNotes('Esta é a última etapa da receita. Lembre os alunos de deixar espaço entre as tortinhas na cesta da air fryer e de usar a luva térmica. Ao final, aproveitem a apple pie!');
 
   await pptx.writeFile({ fileName: `${OUT}/apple-pie-cooking-class.pptx` });
   await browser.close(); fs.rmSync(`${AS}/_m.html`, { force: true });

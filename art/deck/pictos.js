@@ -21,6 +21,7 @@ const pics = {
   airfryer: `<rect x="20" y="12" width="80" height="96" rx="18" fill="#3A5478"/><circle cx="60" cy="38" r="13" fill="#F27D16"/><rect x="30" y="64" width="60" height="32" rx="9" fill="#EBF0F2"/><rect x="48" y="74" width="24" height="9" rx="4.5" fill="#00275B"/>`,
   squeezer: `<path d="M14 60A46 46 0 0 1 106 60Z" fill="#F2D541"/><path d="M25 60A35 35 0 0 1 95 60Z" fill="#FBEFA6" stroke="none"/><path d="M60 60V28M36 60L44 34M84 60L76 34" stroke="#fff" stroke-width="3"/><rect x="18" y="62" width="84" height="14" rx="7" fill="#C9D3DD"/><path d="M28 76h64l-7 28H35z" fill="#C9D3DD"/>`,
   microwave: `<rect x="8" y="26" width="104" height="70" rx="11" fill="#3A5478"/><rect x="18" y="36" width="60" height="50" rx="7" fill="#D5E6F5"/><circle cx="94" cy="46" r="6.5" fill="#F27D16"/><rect x="87" y="62" width="14" height="24" rx="4" fill="#EBF0F2"/>`,
+  cup: `<path d="M28 24H92L84 104H36Z" fill="#D5E6F5"/><path d="M31 48H89L85 100H35Z" fill="#77ABD9" stroke="none"/><path d="M28 24H92" />`,
   mitt: `<path d="M32 106V62C28 48 31 30 42 28c9-1 9 12 9 20V30c0-11 5-19 13-17 9 2 8 13 8 23V30c2-10 13-10 15 3 2 13-1 23-3 35l9-7c8-6 15 5 8 13L88 100c-2 4-5 6-9 6Z" fill="#F27D16"/><rect x="28" y="92" width="58" height="18" rx="6" fill="#77ABD9"/>`,
 };
 const svg = (k) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120"><g ${S}>${pics[k]}</g></svg>`;
