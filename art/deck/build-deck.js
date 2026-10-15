@@ -181,7 +181,7 @@ const CRINKLE = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
   await steps(s, 'How to make the filling:', [
     'Cut one apple into small cubes. Use the knife and the cutting board.', 'Put the apple in a small bowl.', 'Add 3 tablespoons of sugar to the bowl.',
     'Add ½ tablespoon of cinnamon to the bowl.', 'Put ½ cup of water in the other small bowl. Heat it in the microwave for 30 seconds.',
-    'Add 2 tablespoons of the warm water to the apple bowl.', 'Pour out the rest of the water.', 'Mix everything. Heat the apple bowl in the microwave for 3 minutes.'], 1, ['Next: thicken the filling  →', 8]);
+    'Add 2 tablespoons of the warm water to the apple bowl.', 'Pour out the rest of the water.', 'Mix everything. Heat the bowl in the microwave for 3 minutes.'], 1, ['Next: thicken the filling  →', 8]);
   pic(s, await getPhoto('pc7', 'pie-whole.jpg', 440, 440, '36% 60%', 1.15, true, 10), 1560, 520, 440, 440);
   s.addNotes('Agora temos o passo a passo da receita, começando pelo recheio. Convide um aluno por vez para ler cada passo em voz alta e mostre cada ação. A água morna usada no passo 6 é só uma parte da água aquecida no passo 5: use apenas 2 tablespoons e descarte o resto (passo 7), para a segunda tigela ficar vazia para o limão. Nesta aula usamos duas tigelas pequenas: a das maçãs (apple bowl) e a outra (other small bowl).');
 
