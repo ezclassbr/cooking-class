@@ -76,7 +76,7 @@ const CRINKLE = `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000
     if (gh === 'br') pic(s, ghBlue, 1920 - 220, 1080 - 132, 440, 264);
     if (gh === 'l') pic(s, ghOrg, 22, 640, 44, 420);
     pic(s, white ? logoWhite : logoColor, 1920 - 140, white ? 90 : 105, white ? 110 : 118, white ? 110 : 134);
-    txt(s, 'Created by @ezclass_', 190, 1030, 320, 30, 0, { fontFace: 'Montserrat', fontSize: pt(20), color: white ? MIST : '4E6A8F', align: 'left', valign: 'middle' });
+    txt(s, 'Created by @ezclass_', 190, 1054, 320, 30, 0, { fontFace: 'Montserrat', fontSize: pt(20), color: white ? MIST : '4E6A8F', align: 'left', valign: 'middle' });
     if (title) await label(s, title, 90, 56, 96, ORG, -2);
   };
   const chip = (s, x, y, w, h, num, en, ptt, o = {}) => {
